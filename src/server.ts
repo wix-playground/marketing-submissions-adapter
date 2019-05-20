@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import * as wixExpressCsrf from '@wix/wix-express-csrf';
 import * as wixExpressRequireHttps from '@wix/wix-express-require-https';
 import * as bodyParser from 'body-parser';
 import { findItems, getItem, countItems } from './controller/items';
@@ -7,7 +6,6 @@ import { findSchemas, listSchemas } from './controller/schemas';
 import { wrapError, errorMiddleware } from './utils/error-middleware';
 
 module.exports = (app: Router) => {
-  app.use(wixExpressCsrf());
   app.use(wixExpressRequireHttps);
 
   app.get('/', (req, res) => {

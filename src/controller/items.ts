@@ -3,9 +3,13 @@ import * as log from '@wix/wix-debug';
 const logger = log('items-controller');
 
 export async function findItems(req, res) {
+  const instance =
+    (req.query && req.query.instance) || req.get('X-App-Instance');
+
   logger.debug({
     webContext: req.aspects['web-context'],
     aspects: req.aspects,
+    instance,
   });
 
   res.json({
@@ -76,9 +80,13 @@ export async function findItems(req, res) {
 }
 
 export async function getItem(req, res) {
+  const instance =
+    (req.query && req.query.instance) || req.get('X-App-Instance');
+
   logger.debug({
     webContext: req.aspects['web-context'],
     aspects: req.aspects,
+    instance,
   });
   res.json({
     item: {
@@ -91,9 +99,13 @@ export async function getItem(req, res) {
 }
 
 export async function countItems(req, res) {
+  const instance =
+    (req.query && req.query.instance) || req.get('X-App-Instance');
+
   logger.debug({
     webContext: req.aspects['web-context'],
     aspects: req.aspects,
+    instance,
   });
   res.json({ totalCount: 100 });
 }

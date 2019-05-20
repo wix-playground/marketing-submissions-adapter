@@ -3,9 +3,13 @@ import * as log from '@wix/wix-debug';
 const logger = log('schemas-controller');
 
 export async function findSchemas(req, res) {
+  const instance =
+    (req.query && req.query.instance) || req.get('X-App-Instance');
+
   logger.debug({
     webContext: req.aspects['web-context'],
     aspects: req.aspects,
+    instance,
   });
 
   res.json([
@@ -40,9 +44,13 @@ export async function findSchemas(req, res) {
 }
 
 export async function listSchemas(req, res) {
+  const instance =
+    (req.query && req.query.instance) || req.get('X-App-Instance');
+
   logger.debug({
     webContext: req.aspects['web-context'],
     aspects: req.aspects,
+    instance,
   });
   res.json([
     {

@@ -3,6 +3,7 @@ import * as wixExpressRequireHttps from '@wix/wix-express-require-https';
 import * as bodyParser from 'body-parser';
 import { findItems, getItem, countItems } from './controller/items';
 import { findSchemas, listSchemas } from './controller/schemas';
+import { provision } from './controller/provision';
 import { wrapError, errorMiddleware } from './utils/error-middleware';
 
 module.exports = (app: Router) => {
@@ -23,6 +24,7 @@ module.exports = (app: Router) => {
   app.post('/data/get', wrapError(getItem));
 
   app.post('/data/count', wrapError(countItems));
+  app.post('/provision', wrapError(provision));
 
   app.use(errorMiddleware);
 

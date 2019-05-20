@@ -1,4 +1,13 @@
+import * as log from '@wix/wix-debug';
+
+const logger = log('items-controller');
+
 export async function findItems(req, res) {
+  logger.debug({
+    webContext: req.aspects['web-context'],
+    aspects: req.aspects,
+  });
+
   res.json({
     items: [
       {
@@ -67,6 +76,10 @@ export async function findItems(req, res) {
 }
 
 export async function getItem(req, res) {
+  logger.debug({
+    webContext: req.aspects['web-context'],
+    aspects: req.aspects,
+  });
   res.json({
     item: {
       _id: '1',
@@ -78,5 +91,9 @@ export async function getItem(req, res) {
 }
 
 export async function countItems(req, res) {
+  logger.debug({
+    webContext: req.aspects['web-context'],
+    aspects: req.aspects,
+  });
   res.json({ totalCount: 100 });
 }

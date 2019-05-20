@@ -1,4 +1,13 @@
+import * as log from '@wix/wix-debug';
+
+const logger = log('schemas-controller');
+
 export async function findSchemas(req, res) {
+  logger.debug({
+    webContext: req.aspects['web-context'],
+    aspects: req.aspects,
+  });
+
   res.json([
     {
       id: '123',
@@ -31,6 +40,10 @@ export async function findSchemas(req, res) {
 }
 
 export async function listSchemas(req, res) {
+  logger.debug({
+    webContext: req.aspects['web-context'],
+    aspects: req.aspects,
+  });
   res.json([
     {
       id: '123',

@@ -24,6 +24,11 @@ export async function findSchemas(req, res) {
             type: 'text',
             queryOperators: ['eq', 'ne', 'startsWith', 'endsWith'],
           },
+          a: {
+            displayName: 'a',
+            type: 'text',
+            queryOperators: ['eq', 'ne', 'startsWith', 'endsWith'],
+          },
           x: {
             displayName: 'x',
             type: 'text',
@@ -63,6 +68,11 @@ export async function listSchemas(req, res) {
         fields: {
           _id: {
             displayName: '_id',
+            type: 'text',
+            queryOperators: ['eq', 'ne', 'startsWith', 'endsWith'],
+          },
+          a: {
+            displayName: 'a',
             type: 'text',
             queryOperators: ['eq', 'ne', 'startsWith', 'endsWith'],
           },
